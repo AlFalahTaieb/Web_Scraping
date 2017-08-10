@@ -1,0 +1,31 @@
+{
+  "name": "scrap_web",
+  "version": "1.0.0",
+  "description": "Learning Web Scraping for a good purpose !",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlFalahTaieb/Web_Scraping.git"
+  },
+  "keywords": [
+    "Scrap",
+    "The",
+    "Web"
+  ],
+  "author": "Taieb_Al_Falah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlFalahTaieb/Web_Scraping/issues"
+  },
+  "homepage": "https://github.com/AlFalahTaieb/Web_Scraping#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "request": "^2.81.0",
+    "require": "^2.4.20",
+    "x-ray": "^2.3.2"
+  }
+}
