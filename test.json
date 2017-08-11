@@ -1,17 +1,27 @@
 [
   {
-    "nom": "Coralie B.",
-    "job": "Chargée de Ressources Humaines, Ubisoft",
-    "depuis": "Embauché  4m ago"
-  },
-  {
-    "nom": "Livia S.",
-    "job": "Ubisoft Editorial User Research Lab Technical Manager",
-    "depuis": "Embauché  5ans ago"
-  },
-  {
-    "nom": "Frédéric G.",
-    "job": "Ingénieur qualité logiciel, 2S2I",
-    "depuis": "Embauché  2ans ago"
+    "name": "\n              Ubisoft\n            ",
+    "img": "http://static8.viadeo-static.com/-3vL1ulf5FVinOyRAgjIxtqwH48=/fit-in/200x200/filters:fill(white)/ff0db9fd46564396bcf30e1f9ccdd797/1434471006.jpeg",
+    "bio": "Ubisoft (anciennement Ubi Soft Entertainment) est une entreprise française de développement et de distribution de jeux vidéo qui a été créée en 1986 par cinq frères du nom de Guillemot, originaires de Carentoir dans le Morbihan. Le nom de Ubi provient de l'acronyme de Union des Bretons Indépendants.",
+    "followed": "\n                  3 746 personnes suivent cette entreprise\n                ",
+    "addr": "\n                \n                28, rue Armand Carrel \n              ",
+    "link": "http://www.ubi.com",
+    "person": [
+      {
+        "nom": "Coralie B.",
+        "job": "Chargée de Ressources Humaines, Ubisoft",
+        "depuis": "Embauché  4m ago"
+      },
+      {
+        "nom": "Livia S.",
+        "job": "Ubisoft Editorial User Research Lab Technical Manager",
+        "depuis": "Embauché  5ans ago"
+      },
+      {
+        "nom": "Frédéric G.",
+        "job": "Ingénieur qualité logiciel, 2S2I",
+        "depuis": "Embauché  2ans ago"
+      }
+    ]
   }
 ]

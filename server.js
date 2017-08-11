@@ -18,9 +18,9 @@ app.listen(PORT, function() {
     console.log("Server is listening on port " + PORT + ".");
 }); // the callback function simply runs once the server starts
 
-app.get('/api/', function(req, res, next){
+app.get('/api/:id', function(req, res, next){
 
-   x('http://www.viadeo.com/fr/company/ubisoft', 
+   x('http://www.viadeo.com/fr/company/'+req.params.id, 
 	'.page-content',
 	[{
 
@@ -34,10 +34,6 @@ app.get('/api/', function(req, res, next){
 	org:'.pan-desc-footer-element @element-value',
 	link: '.element-value a@href',
 	// twitter:'.element-value a@href:nth-of-type(2)'
-
-
-	
-}])
-.write().pipe(res);
+}]).write().pipe(res);
 
 });
