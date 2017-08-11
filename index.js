@@ -19,7 +19,7 @@ x('http://www.viadeo.com/fr/company/ubisoft',
 
 	org:'.pan-desc-footer-element @element-value',
 	link: '.element-value a@href',
-	twitter:'.span .element-title a@href'
+	twitter:'.element-value a@href:nth-of-type(2)'
 
 
 	
@@ -46,22 +46,22 @@ x('http://www.viadeo.com/fr/company/ubisoft',
 
 
 
-var Xray = require('x-ray');
-var x = Xray();
+// var Xray = require('x-ray');
+// var x = Xray();
 
-x('http://stackoverflow.com/questions', '#questions .question-summary .summary', [{
+// x('http://stackoverflow.com/questions', '#questions .question-summary .summary', [{
 
-  title: 'h3',
-  link: 'h3 a@href',
-  details: x('h3 a@href', {
-    title: 'h1',
-    question: '.question .post-text',
-  })
+//   title: 'h3',
+//   link: 'h3 a@href',
+//   details: x('h3 a@href', {
+//     title: 'h1',
+//     question: '.question .post-text',
+//   })
 
-}])
-(function(err, obj) {
+// }])
+// (function(err, obj) {
 
-  console.log(err);
-  console.log(obj);
+//   console.log(err);
+//   console.log(obj);
 
-})
+// })
