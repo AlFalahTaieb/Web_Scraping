@@ -5,69 +5,63 @@ var x = Xray();
 
 
 
-// x('http://www.viadeo.com/fr/company/unicef', 
-// 	'#pan-emp .pan-employees .pan-employee',
-// 	'.company-header .company-info', 
-// 	[{
-// 	nom:'.pan-emp-name',
-// 	job:'.pan-emp-pos',
-// 	depuis:'.pan-emp-age',
-// 	company:'img@src',
-	
-// }]).write('result.json')
-const company='unicef';
-x('http://www.viadeo.com/fr/company/unicef', 
+// Partie Entreprise 
+x('http://www.viadeo.com/fr/company/ubisoft', 
 	'.page-content',
 	[{
-	// nom:'.pan-emp-name',
-	// job:'.pan-emp-pos',
-	// depuis:'.pan-emp-age',
-	// company:'.company-name',
+
+	name:'.company-name',
 	img:'img@src',
 	bio:'.pan-desc-description',
-	// nbremp:'.pan-desc-footer-element #element-value',
+	
+	followed:'.hide-s',
+	addr:'.pan-desc-map',
+
 	org:'.pan-desc-footer-element @element-value',
 	link: '.element-value a@href',
-	twitter:'.element-value a@href'
+	twitter:'.span .element-title a@href'
 
 
 	
 }]).write('result.json')
 
 
+//Partie employées
+
+
+x('http://www.viadeo.com/fr/company/ubisoft', 
+	'#pan-emp .pan-employees .pan-empployee',
+	[{
+	nom:'.pan-emp-name',
+	job:'.pan-emp-pos',
+	depuis:'.pan-emp-age'
+	
+}]).write('test.json')
 
 
 
 
-// x('http://www.viadeo.com/fr/company/unicef', ['p'])
-
-
-// x('https://www.meetup.com/fr-FR/BellevueJS/members/', 
-// 	'.memberInfo'
-// ,[{
-// 	name:'.memName'
-// 	// job:'#profile #overview-summary-current ol'
-// }])
-// .write('result.json')
 
 
 
-// var Xray = require('x-ray');
-// var x = Xray();
 
-// x('http://stackoverflow.com/questions', '#questions .question-summary .summary', [{
 
-//   title: 'h3',
-//   link: 'h3 a@href',
-//   details: x('h3 a@href', {
-//     title: 'h1',
-//     question: '.question .post-text',
-//   })
+var Xray = require('x-ray');
+var x = Xray();
 
-// }])
-// (function(err, obj) {
+x('http://stackoverflow.com/questions', '#questions .question-summary .summary', [{
 
-//   console.log(err);
-//   console.log(obj);
+  title: 'h3',
+  link: 'h3 a@href',
+  details: x('h3 a@href', {
+    title: 'h1',
+    question: '.question .post-text',
+  })
 
-// })
+}])
+(function(err, obj) {
+
+  console.log(err);
+  console.log(obj);
+
+})
