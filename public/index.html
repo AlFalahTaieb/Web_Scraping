@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Company Scrap</title>
+	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1 class="title">Company Scrap</h1>
+<div id="homepage">
+	
+<div id="comps">
+	<h1>Scrap all the data from Viadeo</h1>
+</div>
+
+</div>
+
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://unpkg.com/react@15/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>﻿
+</body>
+
+
+<script type="text/babel">
+var Comps = React.createClass({
+ getInitialState: function(){
+	return({
+	comps:[]
+	});
+},
+
+	render: function(){
+	var comps=this.state.comps;
+	comps=comps.map(function(comp,index){
+	return(
+		<li key={index}>
+		<span className="nom">{comp.nomEntreprise}</span>
+			<span className="img">{comp.img}</span>
+				<span className="description">{comp.description}</span>
+		</li>
+	);
+	});
+	return(
+	<div id="comp-container">
+	<form id="search" onSubmit={this.handleSubmit}>
+	<label>Enter the company you want to scrap</label>
+	<input type="text" ref="comp" placeholder="name" required/>
+
+	<input type="submit" value="Find Data"/>
+	</form>
+	<ul>{comps}</ul>
+	</div>
+
+	);
+	},
+	handleSubmit:function(e){
+	e.preventDefault();
+	var comp = this.refs.comp.value;
+	fetch('http://localhost:3000/api/'+comp).then(function(data){
+	return data.json();
+
+	}).then(json=>{
+	this.setState({
+	comps:json
+	})
+	});
+
+	}
+})
+
+ReactDOM.render(<Comps/>, document.getElementById('comps'))
+
+
+</script>
+
+</html>

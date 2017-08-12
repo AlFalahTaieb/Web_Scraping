@@ -13,26 +13,42 @@ var x = Xray();
 // var content = fs.readFileSync('test.json','utf8');
 // console.log(content)
 
+app.use(express.static('public'));
 const PORT = 3000;
 app.listen(PORT, function() {
     console.log("Server is listening on port " + PORT + ".");
-}); // the callback function simply runs once the server starts
+}); 
 
-app.get('/api/:id', function(req, res, next){
 
-   x('http://www.viadeo.com/fr/company/'+req.params.id, 
+
+//'&comp=' + encodeURIComponent(comp) +
+
+app.get('/api/:comp', function(req, res, next){
+
+   x('http://www.viadeo.com/fr/company/'+req.params.comp, 
 	'.page-content',
 	[{
 
-	name:'.company-name',
+	nomEntreprise:'.company-name',
 	img:'img@src',
-	bio:'.pan-desc-description',
-	
+	description:'.pan-desc-description',
+	nbrEmp:'div.element-value.gu.gu-last',
 	followed:'.hide-s',
 	addr:'.pan-desc-map',
 
 	org:'.pan-desc-footer-element @element-value',
-	link: '.element-value a@href',
+
+  webS: '.element-value a@href',
+  twitter:'.mbs:nth-child(4) a@href', 
+
+
+person: x('http://www.viadeo.com/fr/company/unicef','#pan-emp .pan-employees .pan-empployee',
+[{
+	nomP:'.pan-emp-name',
+	jobP:'.pan-emp-pos',
+	depuis:'.pan-emp-age'
+	
+}])
 	// twitter:'.element-value a@href:nth-of-type(2)'
 }]).write().pipe(res);
 
