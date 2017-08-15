@@ -25,18 +25,36 @@
 var Comps = React.createClass({
  getInitialState: function(){
 	return({
-	comps:[]
-	
+	comps:[],
+	adr:'',
+	adr1:'',
+	adr2:''
 	});
 },
 
 	render: function(){
 	var comps=this.state.comps;
+	var adr=this.state.comps.addr;
+	var adr1="";
+	var adr2="";
+	var adr3="";
+	var adr4="";
+	var adr5="";
+
 
 
 
 	comps=comps.map(function(comp,index){
 	return(
+
+adr=comp.addr,
+adr1=adr.replace(/                /g,""),
+adr2=adr1.replace(/              /g,""),
+adr3=adr2.replace(/ /g,"+"),
+adr4 =adr3.slice(0, -1),
+adr5=encodeURIComponent(adr4),
+console.log(adr4),
+console.log(adr5),
 		<div key={index}>
 		Nom: <span className="nom">{comp.nomEntreprise}</span>
 			<img src={comp.img}/> 
@@ -65,7 +83,7 @@ var Comps = React.createClass({
 
    <div class="accordion">
     <section class="accordion-item accordion-item--default">
-        <h1>Nom de l'entreprise: {comp.nomEntreprise}</h1>
+        <h1>🏬{comp.nomEntreprise}🏬</h1>
         <img src={comp.img}/> 
         <div class="accordion-item-content ">
           <p>{comp.description}</p>
@@ -75,26 +93,28 @@ var Comps = React.createClass({
         <h1>Détails:</h1>
         <div class="accordion-item-content">
           <p> Nombre d'employées : {comp.nbrEmp}</p>
-
+          <p>Suivi par : {comp.followed} {comp.addr}</p>
+  <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${adr}&amp;&size=400x400`} alt="exemple" />`
         </div>
     </section>
     <section  class="accordion-item">
         <h1>Social Link</h1>
         <div class="accordion-item-content">
-          <p>Content for section 3</p>
+
 
 		
-<a href="{comp.webS}"><img href={comp.webS}  alt="webS" src="img/startup.png"  width="60" height="60"/></a> <a href="{comp.twitter}"><img href={comp.twitter}  alt="twitter" src="img/twitter.png"  width="60" height="60"/></a>
+<img href={comp.webS}  alt="webS" src="img/startup.png"  width="60" height="60"/>
+<img href={comp.twitter}  alt="twitter" src="img/twitter.png"  width="60" height="60"/>
 	
         </div>
     </section>
     <section class="accordion-item">
         <h1>💼 Employés 💼:</h1>
         <div class="accordion-item-content">
-          <p>Content for section 4</p>
+ 
 
  {comp.person.map(val => { return <ol><li key={val}>
- {val.nomP} {val.jobP} {val.depuis}
+ <img src={val.imgm}/> {val.nomP} {val.jobP} {val.depuis}
  </li> </ol>
  })}
         </div>

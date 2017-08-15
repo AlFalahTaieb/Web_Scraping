@@ -46,7 +46,8 @@ person: x('http://www.viadeo.com/fr/company/unicef','#pan-emp .pan-employees .pa
 [{
 	nomP:'.pan-emp-name',
 	jobP:'.pan-emp-pos',
-	depuis:'.pan-emp-age'
+	depuis:'.pan-emp-age',
+	imgm:'img@src'
 	
 }])
 	// twitter:'.element-value a@href:nth-of-type(2)'
