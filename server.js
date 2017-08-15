@@ -36,7 +36,7 @@ app.get('/api/:comp', function(req, res, next){
 	followed:'.hide-s',
 	addr:'.pan-desc-map',
 
-	org:'.pan-desc-footer-element @element-value',
+	org:'div:nth-child(2) .element-value',
 
   webS: '.element-value a@href',
   twitter:'.mbs:nth-child(4) a@href', 

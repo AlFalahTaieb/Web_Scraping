@@ -3,7 +3,7 @@
 <head>
 	<title>Company Scrap</title>
 	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	<link href="/style.css" rel="stylesheet" type="text/css" />
+	<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <h1 class="title">Company Scrap</h1>
@@ -26,29 +26,108 @@ var Comps = React.createClass({
  getInitialState: function(){
 	return({
 	comps:[]
+	
 	});
 },
 
 	render: function(){
 	var comps=this.state.comps;
+
+
+
 	comps=comps.map(function(comp,index){
 	return(
-		<li key={index}>
-		<span className="nom">{comp.nomEntreprise}</span>
-			<span className="img">{comp.img}</span>
-				<span className="description">{comp.description}</span>
-		</li>
+		<div key={index}>
+		Nom: <span className="nom">{comp.nomEntreprise}</span>
+			<img src={comp.img}/> 
+
+	Description:<span className="description">{comp.description}</span>
+
+	Nombre d'epmployée:<span className="nbrEmp">{comp.nbrEmp}</span>
+	
+	Suivi par:<span className="follwed">{comp.followed}</span>
+	
+
+
+
+
+<div>
+
+<h3>Person 💼:</h3>
+
+ {comp.person.map(val => { return <ol><li key={val}>
+ {val.nomP} {val.jobP} {val.depuis}
+ </li> </ol>
+ })}
+</div>
+
+
+
+   <div class="accordion">
+    <section class="accordion-item accordion-item--default">
+        <h1>Nom de l'entreprise: {comp.nomEntreprise}</h1>
+        <img src={comp.img}/> 
+        <div class="accordion-item-content ">
+          <p>{comp.description}</p>
+        </div>
+    </section>
+    <section class="accordion-item">
+        <h1>Détails:</h1>
+        <div class="accordion-item-content">
+          <p> Nombre d'employées : {comp.nbrEmp}</p>
+
+        </div>
+    </section>
+    <section  class="accordion-item">
+        <h1>Social Link</h1>
+        <div class="accordion-item-content">
+          <p>Content for section 3</p>
+
+		
+<a href="{comp.webS}"><img href={comp.webS}  alt="webS" src="img/startup.png"  width="60" height="60"/></a> <a href="{comp.twitter}"><img href={comp.twitter}  alt="twitter" src="img/twitter.png"  width="60" height="60"/></a>
+	
+        </div>
+    </section>
+    <section class="accordion-item">
+        <h1>💼 Employés 💼:</h1>
+        <div class="accordion-item-content">
+          <p>Content for section 4</p>
+
+ {comp.person.map(val => { return <ol><li key={val}>
+ {val.nomP} {val.jobP} {val.depuis}
+ </li> </ol>
+ })}
+        </div>
+    </section>
+</div>
+
+
+
+
+		</div>
+
+
+
+
+
+
 	);
 	});
+
+
+
+	
+
 	return(
 	<div id="comp-container">
 	<form id="search" onSubmit={this.handleSubmit}>
 	<label>Enter the company you want to scrap</label>
-	<input type="text" ref="comp" placeholder="name" required/>
+	<input type="text" ref="comp" placeholder="Enter the company you want to scrap" required/>
 
 	<input type="submit" value="Find Data"/>
 	</form>
 	<ul>{comps}</ul>
+
 	</div>
 
 	);
