@@ -135,7 +135,7 @@ console.log(adr5),
 	handleSubmit:function(e){
 	e.preventDefault();
 	var comp = this.refs.comp.value;
-	fetch('http://localhost:3000/api/'+comp).then(function(data){
+	fetch('https://scrapw.herokuapp.com/api/'+comp).then(function(data){
 	return data.json();
 
 	}).then(json=>{

@@ -15,9 +15,7 @@ var x = Xray();
 
 app.use(express.static('public'));
 const PORT = 3000;
-app.listen(PORT, function() {
-    console.log("Server is listening on port " + PORT + ".");
-}); 
+app.listen(process.env.PORT || PORT)
 
 
 
