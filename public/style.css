@@ -101,10 +101,15 @@ button{
     cursor: pointer;
 }
 
-img,p {
+img{
     display: block;
     margin-left: auto;
     margin-right: auto }
+
+p{
+   text-align: center;
+}
+
 @keyframes  random {
     15% { background-color: #E843FF; } 
     30% { background-color: #71E8E2; } 
@@ -112,3 +117,4 @@ img,p {
     60% { background-color: #E8A4A5; }
     75% { background-color: #65A5FF; }  
 }
+

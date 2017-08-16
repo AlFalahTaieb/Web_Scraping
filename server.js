@@ -35,7 +35,6 @@ app.get('/api/:comp', function(req, res, next){
 	nbrEmp:'div.element-value.gu.gu-last',
 	followed:'.hide-s',
 	addr:'.pan-desc-map',
-
 	org:'div:nth-child(2) .element-value',
 
   webS: '.element-value a@href',

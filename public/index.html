@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Company Scrap</title>
+	<title>🚀Company Scrap🚀</title>
 	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h1 class="title">Company Scrap</h1>
+<h1 class="title">🚀Company Scrap🚀</h1>
 <div id="homepage">
 	
 <div id="comps">
@@ -69,7 +69,7 @@ console.log(adr5),
         </div>
     </section>
     <section class="accordion-item">
-        <h1>💬Détails:💬</h1>
+        <h1>💬Details:💬</h1>
         <div class="accordion-item-content">
           <p>Nombre d'employées : {comp.nbrEmp}</p>
           <p>Suivi par : {comp.followed}</p>
@@ -83,8 +83,8 @@ console.log(adr5),
 
 
 		
-<img href={comp.webS}  alt="webS" src="img/startup.png"  width="60" height="60"/>
-<img href={comp.twitter}  alt="twitter" src="img/twitter.png"  width="60" height="60"/>
+<a href={comp.webS} target="_blank"><img href={comp.webS}  alt="webS" src="img/startup.png"  width="60" height="60"/></a>
+<a href={comp.twitter} target="_blank"><img href={comp.twitter}  alt="twitter" src="img/twitter.png"  width="60" height="60"/></a>
 	
         </div>
     </section>
@@ -94,7 +94,7 @@ console.log(adr5),
  
 
  {comp.person.map(val => { return <ol><li key={val}>
- <img src={val.imgm}/> {val.nomP} {val.jobP} {val.depuis}
+ <img src={val.imgm}/> <p>{val.nomP} {val.jobP} {val.depuis}</p>
  </li> </ol>
  })}
         </div>
