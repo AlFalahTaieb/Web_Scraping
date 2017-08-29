@@ -1,6 +1,7 @@
 var express = require('express');
+
 var app = express();
-var fs =require('fs');
+// var fs =require('fs');
 const request =require('request');
 const Xray=require('x-ray');
 var x = Xray();
@@ -13,16 +14,20 @@ var x = Xray();
 // var content = fs.readFileSync('test.json','utf8');
 // console.log(content)
 
-app.use(express.static('public'));
+
 const PORT = 3000;
 app.listen(process.env.PORT || PORT)
-
 
 
 //'&comp=' + encodeURIComponent(comp) +
 
 app.get('/api/:comp', function(req, res, next){
 
+res.writeHead(200, {
+    'Content-Type': 'text/plain',
+    'Access-Control-Allow-Origin' : '*',
+    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+});
    x('http://www.viadeo.com/fr/company/'+req.params.comp, 
 	'.page-content',
 	[{
@@ -39,7 +44,7 @@ app.get('/api/:comp', function(req, res, next){
   twitter:'.mbs:nth-child(4) a@href', 
 
 
-person: x('http://www.viadeo.com/fr/company/unicef','#pan-emp .pan-employees .pan-empployee',
+person: x('http://www.viadeo.com/fr/company/','#pan-emp .pan-employees .pan-empployee',
 [{
 	nomP:'.pan-emp-name',
 	jobP:'.pan-emp-pos',
